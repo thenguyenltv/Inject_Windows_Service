@@ -4,9 +4,10 @@ Inject and start a simple Windows service in the remote desktop environment, usi
 Các yêu cầu tại remote và local pc:
 - Kết nối với remotename: \\\\x.x.x.x\\admin$ để có thể truy cập thư mục share với quyền 
 admin
-- Remote computer: thêm và thay đổi giá trị LocalAccountTokenFilterPolicy, login bằng local account
+- Remote computer: thêm và thay đổi giá trị LocalAccountTokenFilterPolicy [1], login bằng local account
 
 Kết nối và tạo service trên remote pc:
+- Tạo 1 svc.exe tại local [2]
 - Kết nối thông qua SMB bằng hàm: WNetAddConnection2
 - Cài đặt service trên máy remote bằng cách mở SC_Manager bằng hàm OpenSCManager với 
 flag SC_MANAGER_CREATE_SERVICE
@@ -18,3 +19,6 @@ Kết quả:
 ![image](https://github.com/thenguyenltv/Inject_Windows_Service/assets/95334187/ddf4fdc4-2e93-4ede-bc65-90180e79d23b)
 
 
+Reference:
+- [1] https://learn.microsoft.com/en-US/troubleshoot/windows-client/networking/cannot-logon-access-administrative-share#workaround
+- [2] https://www.codeproject.com/Articles/499465/Simple-Windows-Service-in-Cplusplus
